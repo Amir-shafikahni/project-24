@@ -23,7 +23,7 @@ function typeActionAndKeyAniamtion (event){
     // the type action
     if(event.key === "Backspace"){
         textInput.innerHTML = textInput.innerHTML.substring(0, textInput.innerHTML.length-1)
-    }else if(event.key === "Shift" || event.key === "Tab" || event.key === "CapsLock"){
+    }else if(event.key === "Shift" || event.key === "Tab" || event.key === "CapsLock" || event.key ==="Enter"){
         return
     }else{
         textInput.innerHTML += event.key
