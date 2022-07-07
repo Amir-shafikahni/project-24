@@ -4,13 +4,13 @@ let $ = document;
 
 // variables //////////////
 const body = $.body;
-const allLiElems = $.querySelectorAll("li");
 const textInput = $.querySelector(".textInput");
 
 // fucntions //////////////////
-// the type action and setting animation
-function typeActionAndKeyAniamtion(event) {
-  // to set an animation to the pressed keys
+//setting animation
+function setKeyAnimation(event) {
+  appendValueToDom(event);
+
   let userEventKey = event.key;
   let mainKeyElem = document.getElementById(userEventKey);
 
@@ -19,13 +19,12 @@ function typeActionAndKeyAniamtion(event) {
   mainKeyElem.addEventListener("animationend", function () {
     mainKeyElem.classList.remove("keyAnimation");
   });
-  
-  // the type action
+}
+
+// the type action
+function appendValueToDom(event) {
   if (event.key === "Backspace") {
-    textInput.innerHTML = textInput.innerHTML.substring(
-      0,
-      textInput.innerHTML.length - 1
-    );
+    textInput.innerHTML = textInput.innerHTML.slice(0, -1);
   } else if (
     event.key === "Shift" ||
     event.key === "Tab" ||
@@ -39,4 +38,4 @@ function typeActionAndKeyAniamtion(event) {
 }
 
 // event liseteners //////////////
-window.addEventListener("keydown", typeActionAndKeyAniamtion);
+window.addEventListener("keydown", setKeyAnimation);
